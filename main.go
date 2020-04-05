@@ -13,6 +13,8 @@ func main() {
 
 	router := mux.NewRouter()
 
+	router.HandleFunc("/upload", controllers.UploadImage).Methods("POST")
+	router.HandleFunc("/view", controllers.ViewImage).Methods("GET")
 	router.HandleFunc("/register", controllers.CreateAccount).Methods("POST")
 	router.HandleFunc("/login", controllers.Authenticate).Methods("POST")
 	router.HandleFunc("/contacts/new", controllers.CreateContact).Methods("POST")
@@ -27,7 +29,7 @@ func main() {
 
 	fmt.Println(port)
 
-	err := http.ListenAndServe(":" + port, router)
+	err := http.ListenAndServe(":"+port, router)
 	if err != nil {
 		fmt.Print(err)
 	}
