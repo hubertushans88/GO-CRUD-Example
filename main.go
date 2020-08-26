@@ -13,7 +13,6 @@ func main() {
 
 	router := mux.NewRouter()
 
-	router.HandleFunc("/upload", controllers.UploadImage).Methods("POST")
 	router.HandleFunc("/view", controllers.ViewImage).Methods("GET")
 	router.HandleFunc("/register", controllers.CreateAccount).Methods("POST")
 	router.HandleFunc("/login", controllers.Authenticate).Methods("POST")
